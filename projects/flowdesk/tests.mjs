@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {demoProject,metrics,taskError,validateBackup,validDate} from './core.js';
+test('demo budget and completion are calculated from records',()=>{const m=metrics(demoProject());assert.equal(m.total,8);assert.equal(m.done,3);assert.equal(m.progress,38);assert.equal(m.actual,35000);assert.equal(m.estimate,82000);assert.equal(m.budget,82000);assert.equal(m.remaining,47000);assert.equal(m.highRisks,2);});
+test('only approved changes affect funding, exactly once',()=>{const p=demoProject();assert.equal(metrics(p).budget,82000);p.changes[0].status='Approved';assert.equal(metrics(p).budget,100000);assert.equal(metrics(p).budget,100000);p.changes[0].status='Rejected';assert.equal(metrics(p).budget,82000);});
+test('unfinished predecessors prevent starting dependent work',()=>{const p=demoProject();assert.match(taskError(p,{...p.tasks[5],status:'In progress'}),/predecessor/);p.tasks[3].status=p.tasks[4].status='Done';assert.equal(taskError(p,{...p.tasks[5],status:'In progress'}),'');});
+test('dependency cycles are rejected',()=>{const p=demoProject();assert.match(taskError(p,{...p.tasks[0],deps:['demo-t7']}),/cycle/);});
+test('completed predecessor cannot reopen while successor is active',()=>{const p=demoProject();assert.match(taskError(p,{...p.tasks[2],status:'To do'}),/reopening/);});
+test('invalid dates and negative task costs are rejected',()=>{assert.equal(validDate('2026-99-01'),false);assert.equal(validDate('2026-02-30'),false);assert.equal(validDate('2028-02-29'),true);const p=demoProject();assert.match(taskError(p,{...p.tasks[7],actual:-1}),/Costs/);});
+test('backup round trip preserves project records',()=>{const p=demoProject(),v={version:1,projects:[p]};assert.deepEqual(validateBackup(JSON.parse(JSON.stringify(v))),v);});
+test('backup rejects duplicate IDs and negative approved budget',()=>{const p=demoProject();p.tasks.push({...p.tasks[0]});assert.throws(()=>validateBackup({version:1,projects:[p]}),/duplicate/);p.tasks.pop();p.changes[0].status='Approved';p.changes[0].amount=-90000;assert.throws(()=>validateBackup({version:1,projects:[p]}),/negative/);});
+test('backup rejects unknown status and wrong schema',()=>{assert.throws(()=>validateBackup({version:2,projects:[]}));const p=demoProject();p.tasks[0].status='Unknown';assert.throws(()=>validateBackup({version:1,projects:[p]}),/status/);});
