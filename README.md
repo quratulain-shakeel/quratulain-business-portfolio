@@ -9,7 +9,7 @@ A responsive, accessible static portfolio centered on Gul Bakes, with education,
 3. Choose **main** and **/(root)**, then click **Save**.
 4. Wait for GitHub to finish deployment; the Pages settings will show the live URL.
 
-Expected URL after deployment: https://tubaannie025-web.github.io/quratulain-business-portfolio/
+
 
 ## Editing
 
