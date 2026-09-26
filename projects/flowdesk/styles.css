@@ -5,3 +5,150 @@
 @media(max-width:390px){.board{grid-template-columns:1fr}.metric strong{font-size:21px}}
 
 fieldset{grid-column:1/-1;min-width:0}
+
+
+/* =========================================================
+   PREMIUM 3D / GLASS UPGRADE — GUL BAKES FLOWDESK
+========================================================= */
+body{
+  background:
+    radial-gradient(circle at 88% 10%,rgba(37,99,235,.08),transparent 22%),
+    linear-gradient(180deg,#f6f8fd 0%,#eef3fb 100%);
+}
+.sidebar{
+  background:
+    radial-gradient(circle at 20% 10%,rgba(72,111,230,.18),transparent 24%),
+    linear-gradient(180deg,#0b1735 0%,#111f45 58%,#0a1530 100%);
+  border-right:1px solid rgba(255,255,255,.08);
+  box-shadow:20px 0 55px rgba(6,18,45,.16);
+}
+.brand b{
+  background:linear-gradient(145deg,#4c82ff,#2563eb);
+  box-shadow:0 10px 24px rgba(37,99,235,.34),inset 0 1px 0 rgba(255,255,255,.28);
+}
+.sidebar select,.new-project,.sidebar-bottom button{
+  backdrop-filter:blur(14px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+}
+.sidebar nav button{
+  border-radius:11px;
+  transition:transform .22s ease,background .22s ease,box-shadow .22s ease;
+}
+.sidebar nav button:hover{
+  transform:translateX(4px);
+  background:linear-gradient(90deg,#20396c,#284b91);
+  box-shadow:0 10px 26px rgba(0,0,0,.16);
+}
+.sidebar nav button.active{
+  background:linear-gradient(135deg,#2b4c92,#315db3);
+  box-shadow:0 14px 28px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.08);
+}
+.workspace>header{
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(18px) saturate(130%);
+  box-shadow:0 8px 25px rgba(18,36,80,.05);
+}
+main{perspective:1600px}
+.heading h1{
+  font-size:31px;
+  letter-spacing:-1.1px;
+}
+.heading-actions button,.primary,#report{
+  border-radius:11px;
+  box-shadow:0 9px 24px rgba(22,50,105,.08);
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.heading-actions button:hover,.primary:hover,#report:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(18,46,110,.14);
+}
+.demo-banner{
+  background:linear-gradient(135deg,rgba(234,240,255,.95),rgba(245,248,255,.88));
+  border-color:#d2def7;
+  box-shadow:0 10px 28px rgba(20,48,104,.07),inset 0 1px 0 white;
+}
+.metric,.panel,.task,.table-wrap,.timeline{
+  background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(248,250,255,.94));
+  border-color:#dce4f3;
+  box-shadow:0 12px 30px rgba(20,44,94,.07),inset 0 1px 0 rgba(255,255,255,.9);
+}
+.metric{
+  border-radius:16px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.metric:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(125deg,rgba(255,255,255,.75),transparent 35%);
+  pointer-events:none;
+}
+.metric:hover{
+  transform:translateY(-5px) rotateX(2deg);
+  box-shadow:0 20px 42px rgba(18,44,101,.12);
+}
+.panel{
+  border-radius:16px;
+  box-shadow:0 16px 36px rgba(18,43,93,.07);
+}
+.column{
+  background:linear-gradient(180deg,#edf2fa,#e8eef8);
+  border:1px solid #dfe6f2;
+  border-radius:14px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8);
+}
+.task{
+  border-radius:12px;
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.task:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 32px rgba(15,40,92,.12);
+  border-color:#bfd0f0;
+}
+.progress-track{
+  height:10px;
+  background:#e9eef7;
+  box-shadow:inset 0 1px 3px rgba(17,38,80,.08);
+}
+.progress-track>span{
+  background:linear-gradient(90deg,#2563eb,#5b8cff);
+  box-shadow:0 0 18px rgba(37,99,235,.26);
+}
+.badge{
+  border-radius:999px;
+  border:1px solid rgba(117,145,198,.14);
+}
+.table-wrap,.timeline{border-radius:14px}
+.timeline-track{
+  background:linear-gradient(180deg,#f0f4fb,#e8eef8);
+}
+.timeline-bar{
+  background:linear-gradient(90deg,#326ee8,#6a95ff);
+  box-shadow:0 8px 18px rgba(37,99,235,.18);
+}
+dialog{
+  border:1px solid rgba(217,226,243,.95);
+  background:linear-gradient(145deg,#fff,#f7f9fd);
+  box-shadow:0 40px 110px rgba(7,20,50,.30);
+  backdrop-filter:blur(18px);
+}
+dialog::backdrop{
+  background:rgba(7,17,38,.72);
+  backdrop-filter:blur(8px);
+}
+#toast{
+  border:1px solid rgba(255,255,255,.12);
+  background:linear-gradient(135deg,#0d1d42,#172554);
+  box-shadow:0 20px 55px rgba(5,17,45,.28);
+}
+@media(max-width:760px){
+  .sidebar{box-shadow:none;border-right:0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .sidebar nav button:hover{transform:none}
+  .metric:hover,.task:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .metric,.task,.sidebar nav button,.heading-actions button,.primary,#report{transition:none!important;transform:none!important}
+}
