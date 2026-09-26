@@ -20,7 +20,7 @@ const rows=[
 ['Product data preparation','Gulnaz Akhtar',-27,-23,'Done','High',4000,4000,['gb-t1','gb-t2'],'Prepare titles, descriptions, prices, images, variants/options and product grouping.'],
 ['Upload and QA products','Quratulain Shakeel',-24,-19,'Done','High',8000,8000,['gb-t5'],'Create product entries and verify images, pricing, availability, options and calls-to-action.'],
 ['Product SEO & alt text','Gulnaz Akhtar',-22,-18,'Done','Medium',4500,4500,['gb-t6'],'Improve searchable titles, meta descriptions, handles and image alt text without keyword stuffing.'],
-['Build collections','Quratulain Shakeel',-20,-16,'In progress','High',6000,3500,['gb-t6'],'Create and review Birthday Cakes, Chocolate Cakes, Vanilla Cakes, Cupcakes, New Arrivals, Best Sellers and Custom Cakes collections.'],
+['Build collections','Quratulain Shakeel',-20,-16,'Done','High',6000,6000,['gb-t6'],'Create and review Birthday Cakes, Chocolate Cakes, Vanilla Cakes, Cupcakes, New Arrivals, Best Sellers and Custom Cakes collections.'],
 ['Navigation & menu architecture','Quratulain Shakeel',-18,-14,'In progress','High',4500,2200,['gb-t8'],'Connect header/footer links to the correct collections, pages and customer-care content.'],
 ['Homepage structure & premium sections','Quratulain Shakeel',-17,-11,'In progress','High',12000,7000,['gb-t2','gb-t8'],'Build hero, categories, best sellers, custom cakes, Signature Details, Gift Edit, story, journal and trust sections.'],
 ['Custom cake ordering journey','Gulnaz Akhtar',-15,-10,'In progress','High',6500,2800,['gb-t6'],'Create a clear custom cake journey with inspiration, details, guidance and a strong order CTA.'],
