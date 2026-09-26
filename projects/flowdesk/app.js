@@ -2,6 +2,12 @@ import {STATUSES,uid,today,day,metrics,blockers,taskError,validateBackup,demoPro
 const $=s=>document.querySelector(s),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const KEY='flowdesk-v1';let state,view='overview',filter='',priority='All',editing=null,storageBlocked=false;
 try{const raw=localStorage.getItem(KEY);state=raw?validateBackup(JSON.parse(raw)):{version:1,projects:[demoProject()]};}catch(e){state={version:1,projects:[demoProject()]};storageBlocked=true;$('#notice').hidden=false;$('#notice').textContent='Saved data could not be read. The demo is shown without overwriting it. Export this session before closing; import a valid backup to resume saving.';}
+const oldDemoIndex=state.projects.findIndex(p=>p?.demo===true&&p.name==='Gul Bakes · Delivery improvement');
+if(oldDemoIndex!==-1){
+  const replacement=demoProject();
+  replacement.id=state.projects[oldDemoIndex].id;
+  state.projects[oldDemoIndex]=replacement;
+}
 let active=state.projects[0].id;
 const project=()=>state.projects.find(p=>p.id===active);
 const money=n=>new Intl.NumberFormat('en-PK',{style:'currency',currency:project().currency,maximumFractionDigits:0}).format(n);
